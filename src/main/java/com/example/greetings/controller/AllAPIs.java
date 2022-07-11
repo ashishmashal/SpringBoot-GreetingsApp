@@ -32,7 +32,7 @@ public class AllAPIs {
 
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name){
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
+        return new Greeting((int) counter.incrementAndGet(), String.format(template, name));
     }
     @RequestMapping("/welcome")
     public String displayMessage(){
@@ -48,6 +48,10 @@ public class AllAPIs {
     @PostMapping("/addGreeting")
     public Greeting addGreeting(@RequestBody Greeting greeting){
         return service.saveGreetings(greeting);
+    }
+    @GetMapping("/greetingById/{id}")
+    public Greeting getGreetingById(@PathVariable Integer id){
+        return service.findGreetingById(id);
     }
 
 }
