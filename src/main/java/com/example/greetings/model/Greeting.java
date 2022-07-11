@@ -1,5 +1,10 @@
 package com.example.greetings.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Greeting {
     private long id;
     private String message;
@@ -8,7 +13,10 @@ public class Greeting {
         this.id = id;
         this.message = message;
     }
-
+    public Greeting(){
+    }
+    @Id
+    @GeneratedValue
     public long getId() {
         return id;
     }
