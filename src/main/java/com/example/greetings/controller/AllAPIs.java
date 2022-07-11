@@ -62,4 +62,9 @@ public class AllAPIs {
     public Greeting editGreeting(@RequestBody Greeting greeting, @PathVariable Integer id){
         return service.editGreeting(greeting, id);
     }
+    @DeleteMapping("/deleteGreeting/{id}")
+    public String deleteGreeting(@PathVariable Integer id){
+        service.deleteGreeting(id);
+        return "Data Deleted";
+    }
 }
